@@ -135,6 +135,7 @@ $logoUrl = $logoAgence ? URL_APPLICATION . ltrim($logoAgence, '/') : '';
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Impression par lot - <?= count($billets) ?> billets</title>
+    <link rel="icon" href="<?= securiser(URL_APPLICATION . LOGO_APPLICATION) ?>" type="image/jpeg">
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://unpkg.com/lucide@latest"></script>
     <style>

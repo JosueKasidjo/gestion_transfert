@@ -121,9 +121,7 @@ try {
 
 $nom_affiche = $parametres["nom_agence"] ?? NOM_APPLICATION;
 $slogan      = $parametres["slogan"]     ?? "";
-$logo        = $parametres["logo"]       ?? "";
-
-$logo_url = $logo ? URL_APPLICATION . ltrim($logo, '/') : '';
+$logo_url = URL_APPLICATION . LOGO_APPLICATION;
 
 ?>
 <!DOCTYPE html>
@@ -134,6 +132,7 @@ $logo_url = $logo ? URL_APPLICATION . ltrim($logo, '/') : '';
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <title>Connexion - <?= securiser($nom_affiche) ?></title>
+    <link rel="icon" href="<?= securiser($logo_url) ?>" type="image/jpeg">
 
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://unpkg.com/lucide@latest"></script>

@@ -20,11 +20,7 @@ if ($nomUtilisateurLayout === '') {
 $nomAgenceLayout = $utilisateurLayout['nom_agence'] ?: NOM_APPLICATION;
 $roleLayout = $utilisateurLayout['role'] ?: 'Agent';
 
-$logoLayout = '';
-try {
-    $paramLayout = parametresAgence($pdo);
-    $logoLayout = $paramLayout['logo'] ?? '';
-} catch (Throwable $e) {}
+$logoLayout = URL_APPLICATION . LOGO_APPLICATION;
 
 $menusLayout = [
     'general' => ['titre' => 'Général', 'liens' => [
@@ -62,6 +58,7 @@ $menusLayout = [
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title><?= securiser($titrePage) ?> - <?= securiser($nomAgenceLayout) ?></title>
+<link rel="icon" href="<?= securiser(URL_APPLICATION . LOGO_APPLICATION) ?>" type="image/jpeg">
 <script src="https://cdn.tailwindcss.com"></script>
 <script src="https://unpkg.com/lucide@latest"></script>
 <script src="icons.js" defer></script>

@@ -5,6 +5,10 @@ if (!defined('NOM_APPLICATION')) {
     define('NOM_APPLICATION', 'Gestion Agence de Voyage');
 }
 
+if (!defined('LOGO_APPLICATION')) {
+    define('LOGO_APPLICATION', 'uploads/logos/logo_20261120091310_b3a6ba0a.jpg');
+}
+
 if (!defined('URL_APPLICATION')) {
     define('URL_APPLICATION', 'http://localhost/agence_voyage/');
 }
