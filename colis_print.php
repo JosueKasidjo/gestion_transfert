@@ -85,7 +85,7 @@ $tel1Agence    = $parametres['telephone1']   ?? '';
 $piedFacture   = $parametres['pied_facture'] ?? 'Merci pour votre confiance.';
 $logoAgence    = $parametres['logo']         ?? '';
 
-$logoUrl = $logoAgence ? URL_APPLICATION . ltrim($logoAgence, '/') : '';
+$logoUrl = cheminLogo($logoAgence);
 
 /* =====================================================
    QR CODE
@@ -115,7 +115,7 @@ $textePartage = "RECU DE COLIS\n"
 function nettoyerTelephone(string $tel): string
 {
     $tel = preg_replace('/\D+/', '', $tel);
-    if (str_starts_with($tel, '0') && strlen($tel) >= 9) {
+    if ($tel !== '' && $tel[0] === '0' && strlen($tel) >= 9) {
         $tel = '243' . substr($tel, 1);
     }
     return $tel;
@@ -131,7 +131,7 @@ $telDestinataire = nettoyerTelephone($colis['destinataire_tel'] ?? '');
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Reçu colis <?= securiser($colis['code_colis']) ?></title>
-    <link rel="icon" href="<?= securiser(URL_APPLICATION . LOGO_APPLICATION) ?>" type="image/jpeg">
+    <link rel="icon" href="<?= securiser(cheminLogo(LOGO_APPLICATION)) ?>" type="image/jpeg">
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://unpkg.com/lucide@latest"></script>
     <style>
@@ -236,9 +236,9 @@ $telDestinataire = nettoyerTelephone($colis['destinataire_tel'] ?? '');
             <?= securiser($colis['devise']) ?>
         </div>
         <div class="row" style="justify-content:center; margin-top:4px;">
-            <span class="statut <?= match($colis['statut']) {
-                'Retire' => 'retire', 'Annule' => 'annule', default => '',
-            } ?>">
+            <span class="statut <?= valeurCorrespondante($colis['statut'], [
+                'Retire' => 'retire', 'Annule' => 'annule',
+            ], '') ?>">
                 <?= securiser($colis['statut']) ?>
             </span>
         </div>

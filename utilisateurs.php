@@ -560,12 +560,11 @@ require 'header.php';
                             <td class="px-4 py-3">
                                 <span class="px-2 py-1 rounded text-xs font-semibold
                                     <?php
-                                    echo match($u['role']) {
+                                    echo valeurCorrespondante($u['role'], [
                                         'Administrateur' => 'bg-sky-100 text-sky-700',
                                         'Gestionnaire'   => 'bg-amber-100 text-amber-700',
                                         'Caissier'       => 'bg-cyan-100 text-cyan-700',
-                                        default          => 'bg-slate-100 text-slate-600',
-                                    };
+                                    ], 'bg-slate-100 text-slate-600');
                                     ?>">
                                     <?= securiser($u['role']) ?>
                                 </span>

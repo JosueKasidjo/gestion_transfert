@@ -620,7 +620,7 @@ try {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <title>Installation - Gestion Agence de Voyage</title>
-    <link rel="icon" href="<?= securiser(URL_APPLICATION . LOGO_APPLICATION) ?>" type="image/jpeg">
+    <link rel="icon" href="<?= securiser(cheminLogo(LOGO_APPLICATION)) ?>" type="image/jpeg">
 
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://unpkg.com/lucide@latest"></script>

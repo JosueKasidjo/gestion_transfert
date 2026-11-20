@@ -12,7 +12,7 @@ $nomApplication = NOM_APPLICATION;
     <meta http-equiv="refresh" content="2;url=<?= securiser($destination) ?>">
     <meta name="theme-color" content="#082f49">
     <title>Chargement - <?= securiser($nomApplication) ?></title>
-    <link rel="icon" href="<?= securiser(URL_APPLICATION . LOGO_APPLICATION) ?>" type="image/jpeg">
+    <link rel="icon" href="<?= securiser(cheminLogo(LOGO_APPLICATION)) ?>" type="image/jpeg">
     <style>
         * { box-sizing: border-box; }
         body {
@@ -92,7 +92,7 @@ $nomApplication = NOM_APPLICATION;
 </head>
 <body>
     <main class="loader" aria-live="polite">
-        <img class="logo" src="<?= securiser(URL_APPLICATION . LOGO_APPLICATION) ?>" alt="Logo La Main Victorieuse">
+        <img class="logo" src="<?= securiser(cheminLogo(LOGO_APPLICATION)) ?>" alt="Logo La Main Victorieuse">
         <h1><?= securiser($nomApplication) ?></h1>
         <p>Préparation de votre espace...</p>
         <div class="progression" role="progressbar" aria-label="Chargement"></div>

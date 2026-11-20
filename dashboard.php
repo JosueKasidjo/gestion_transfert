@@ -544,12 +544,11 @@ require 'header.php';
                             <td class="px-5 py-4">
                                 <span class="px-3 py-1 rounded-full text-xs font-semibold
                                     <?php
-                                    echo match($v['statut']) {
+                                    echo valeurCorrespondante($v['statut'], [
                                         'Programme' => 'bg-sky-100 text-sky-700',
                                         'En cours'  => 'bg-amber-100 text-amber-700',
                                         'Termine'   => 'bg-emerald-100 text-emerald-700',
-                                        default     => 'bg-red-100 text-red-700',
-                                    };
+                                    ], 'bg-red-100 text-red-700');
                                     ?>">
                                     <?= securiser($v['statut']) ?>
                                 </span>
@@ -618,13 +617,12 @@ require 'header.php';
                             <td class="px-5 py-4">
                                 <span class="px-3 py-1 rounded-full text-xs font-semibold
                                     <?php
-                                    echo match($c['statut']) {
+                                    echo valeurCorrespondante($c['statut'], [
                                         'Enregistre' => 'bg-sky-100 text-sky-700',
                                         'En transit' => 'bg-amber-100 text-amber-700',
                                         'Arrive'     => 'bg-cyan-100 text-cyan-700',
                                         'Retire'     => 'bg-emerald-100 text-emerald-700',
-                                        default      => 'bg-red-100 text-red-700',
-                                    };
+                                    ], 'bg-red-100 text-red-700');
                                     ?>">
                                     <?= securiser($c['statut']) ?>
                                 </span>

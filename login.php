@@ -121,7 +121,7 @@ try {
 
 $nom_affiche = $parametres["nom_agence"] ?? NOM_APPLICATION;
 $slogan      = $parametres["slogan"]     ?? "";
-$logo_url = URL_APPLICATION . LOGO_APPLICATION;
+$logo_url = cheminLogo(LOGO_APPLICATION);
 
 ?>
 <!DOCTYPE html>

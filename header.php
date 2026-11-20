@@ -28,7 +28,7 @@ if ($nomUtilisateur === '') {
 $nomAgenceH = $u['nom_agence'] ?: NOM_APPLICATION;
 $roleH      = $u['role'] ?: 'Agent';
 
-$logoH = URL_APPLICATION . LOGO_APPLICATION;
+$logoH = cheminLogo(LOGO_APPLICATION);
 
 $menusH = [
     'general' => [
@@ -82,7 +82,7 @@ $menusH = [
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title><?= securiser($titrePage) ?> - <?= securiser($nomAgenceH) ?></title>
-    <link rel="icon" href="<?= securiser(URL_APPLICATION . LOGO_APPLICATION) ?>" type="image/jpeg">
+    <link rel="icon" href="<?= securiser(cheminLogo(LOGO_APPLICATION)) ?>" type="image/jpeg">
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://unpkg.com/lucide@latest"></script>
     <style>

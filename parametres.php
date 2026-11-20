@@ -287,7 +287,7 @@ require 'header.php';
 
                     <div class="w-24 h-24 rounded-xl border border-slate-200 bg-slate-50 flex items-center justify-center overflow-hidden">
                         <?php if (!empty($parametres['logo'])): ?>
-                            <img src="<?= securiser(URL_APPLICATION . ltrim($parametres['logo'], '/')) ?>"
+                            <img src="<?= securiser(cheminLogo($parametres['logo'])) ?>"
                                  alt="Logo"
                                  class="w-full h-full object-contain p-1">
                         <?php else: ?>

@@ -435,12 +435,11 @@ require 'header.php';
                             <td class="px-4 py-3">
                                 <span class="px-3 py-1 rounded-full text-xs font-semibold
                                     <?php
-                                    echo match($v['statut']) {
+                                    echo valeurCorrespondante($v['statut'], [
                                         'Programme' => 'bg-sky-100 text-sky-700',
                                         'En cours'  => 'bg-amber-100 text-amber-700',
                                         'Termine'   => 'bg-emerald-100 text-emerald-700',
-                                        default     => 'bg-red-100 text-red-700',
-                                    };
+                                    ], 'bg-red-100 text-red-700');
                                     ?>">
                                     <?= securiser($v['statut']) ?>
                                 </span>

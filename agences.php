@@ -452,11 +452,10 @@ require 'header.php';
                             <td class="px-4 py-3 text-slate-600">
                                 <span class="px-2 py-1 rounded text-xs font-semibold
                                     <?php
-                                    echo match($a['type_agence']) {
+                                    echo valeurCorrespondante($a['type_agence'], [
                                         'Principale' => 'bg-sky-100 text-sky-700',
                                         'Succursale' => 'bg-amber-100 text-amber-700',
-                                        default      => 'bg-slate-100 text-slate-600',
-                                    };
+                                    ], 'bg-slate-100 text-slate-600');
                                     ?>">
                                     <?= securiser($a['type_agence']) ?>
                                 </span>

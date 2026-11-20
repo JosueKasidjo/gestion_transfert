@@ -32,7 +32,7 @@ try {
     die("Erreur : " . securiser($e->getMessage()));
 }
 
-function trouverColonneMilieux(array $colonnes, array $possibilites): ?string
+function trouverColonneMilieux(array $colonnes, array $possibilites)
 {
     foreach ($possibilites as $p) {
         foreach ($colonnes as $c) {

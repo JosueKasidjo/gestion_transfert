@@ -85,7 +85,7 @@ $tel1Agence    = $parametres['telephone1']   ?? '';
 $piedFacture   = $parametres['pied_facture'] ?? 'Merci pour votre confiance. Bon voyage !';
 $logoAgence    = $parametres['logo']         ?? '';
 
-$logoUrl = $logoAgence ? URL_APPLICATION . ltrim($logoAgence, '/') : '';
+$logoUrl = cheminLogo($logoAgence);
 
 /* =====================================================
    QR CODE + LIEN SUIVI
@@ -119,7 +119,7 @@ function nettoyerTelephone(string $tel): string
     $tel = preg_replace('/\D+/', '', $tel);
 
     // Si commence par 0 (RDC), convertir en 243
-    if (str_starts_with($tel, '0') && strlen($tel) >= 9) {
+    if ($tel !== '' && $tel[0] === '0' && strlen($tel) >= 9) {
         $tel = '243' . substr($tel, 1);
     }
 
@@ -135,7 +135,7 @@ $telVoyageur = nettoyerTelephone($billet['voyageur_tel'] ?? '');
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Billet <?= securiser($billet['numero_billet']) ?></title>
-    <link rel="icon" href="<?= securiser(URL_APPLICATION . LOGO_APPLICATION) ?>" type="image/jpeg">
+    <link rel="icon" href="<?= securiser(cheminLogo(LOGO_APPLICATION)) ?>" type="image/jpeg">
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://unpkg.com/lucide@latest"></script>
     <style>
@@ -230,9 +230,9 @@ $telVoyageur = nettoyerTelephone($billet['voyageur_tel'] ?? '');
             <?= securiser($billet['devise']) ?>
         </div>
         <div class="row" style="justify-content:center; margin-top:4px;">
-            <span class="statut <?= match($billet['statut_paiement']) {
-                'Paye' => 'paye', 'Partiel' => 'partiel', default => 'non-paye',
-            } ?>">
+            <span class="statut <?= valeurCorrespondante($billet['statut_paiement'], [
+                'Paye' => 'paye', 'Partiel' => 'partiel',
+            ], 'non-paye') ?>">
                 <?= securiser($billet['statut_paiement']) ?>
             </span>
         </div>

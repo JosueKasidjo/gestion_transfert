@@ -126,7 +126,7 @@ $tel1Agence    = $parametres['telephone1']   ?? '';
 $piedFacture   = $parametres['pied_facture'] ?? 'Merci pour votre confiance.';
 $logoAgence    = $parametres['logo']         ?? '';
 
-$logoUrl = $logoAgence ? URL_APPLICATION . ltrim($logoAgence, '/') : '';
+$logoUrl = cheminLogo($logoAgence);
 
 ?>
 <!DOCTYPE html>
@@ -135,7 +135,7 @@ $logoUrl = $logoAgence ? URL_APPLICATION . ltrim($logoAgence, '/') : '';
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Impression par lot - <?= count($billets) ?> billets</title>
-    <link rel="icon" href="<?= securiser(URL_APPLICATION . LOGO_APPLICATION) ?>" type="image/jpeg">
+    <link rel="icon" href="<?= securiser(cheminLogo(LOGO_APPLICATION)) ?>" type="image/jpeg">
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://unpkg.com/lucide@latest"></script>
     <style>
@@ -450,9 +450,9 @@ $logoUrl = $logoAgence ? URL_APPLICATION . ltrim($logoAgence, '/') : '';
                         <?= securiser($billet['devise']) ?>
                     </div>
 
-                    <div class="coupon-statut <?= match($billet['statut_paiement']) {
-                        'Paye' => 'paye', 'Partiel' => 'partiel', default => 'non-paye',
-                    } ?>">
+                    <div class="coupon-statut <?= valeurCorrespondante($billet['statut_paiement'], [
+                        'Paye' => 'paye', 'Partiel' => 'partiel',
+                    ], 'non-paye') ?>">
                         <?= securiser($billet['statut_paiement']) ?>
                     </div>
 

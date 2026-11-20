@@ -109,6 +109,43 @@ if (!function_exists('securiser')) {
     }
 }
 
+if (!function_exists('cheminLogo')) {
+
+    function cheminLogo($logo): string {
+
+        $logo = trim((string)$logo);
+        if ($logo === '') {
+            return '';
+        }
+
+        $chemin = parse_url($logo, PHP_URL_PATH);
+        if (!is_string($chemin) || $chemin === '') {
+            $chemin = $logo;
+        }
+
+        $nomFichier = basename(str_replace('\\', '/', $chemin));
+        if ($nomFichier === '' || $nomFichier === '.' || $nomFichier === '..') {
+            return '';
+        }
+
+        return 'uploads/logos/' . rawurlencode($nomFichier);
+    }
+}
+
+if (!function_exists('valeurCorrespondante')) {
+
+    function valeurCorrespondante($valeur, array $correspondances, $defaut = null) {
+
+        foreach ($correspondances as $cle => $resultat) {
+            if ($valeur === $cle) {
+                return $resultat;
+            }
+        }
+
+        return $defaut;
+    }
+}
+
 /* Alias pratique pour les anciennes pages */
 
 if (!function_exists('h')) {
@@ -136,7 +173,7 @@ if (!function_exists('estConnecte')) {
 
 if (!function_exists('exigerConnexion')) {
 
-    function exigerConnexion(): void {
+    function exigerConnexion() {
 
         if (!estConnecte()) {
 
@@ -150,7 +187,7 @@ if (!function_exists('exigerConnexion')) {
 
 if (!function_exists('verifierConnexion')) {
 
-    function verifierConnexion(): void {
+    function verifierConnexion() {
 
         exigerConnexion();
     }
@@ -183,7 +220,7 @@ if (!function_exists('utilisateurConnecte')) {
 
 if (!function_exists('exigerRole')) {
 
-    function exigerRole(array $roles): void {
+    function exigerRole(array $roles) {
 
         exigerConnexion();
 
@@ -361,7 +398,7 @@ if (!function_exists('genererTokenCSRF')) {
 
 if (!function_exists('verifierTokenCSRF')) {
 
-    function verifierTokenCSRF(): void {
+    function verifierTokenCSRF() {
 
         $token = $_POST['csrf_token'] ?? '';
 
@@ -426,7 +463,7 @@ if (!function_exists('nomAgence')) {
 
 if (!function_exists('rediriger')) {
 
-    function rediriger(string $page): void {
+    function rediriger(string $page) {
 
         header("Location: " . $page);
         exit;
