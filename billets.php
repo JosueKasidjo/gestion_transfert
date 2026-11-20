@@ -509,7 +509,7 @@ require 'header.php';
                                     </a>
                                     <a href="billets.php?modifier=<?= (int)$b['id'] ?>"
                                        class="bg-amber-100 text-amber-700 hover:bg-amber-200 px-3 py-2 rounded-lg text-xs">
-                                        Modifier
+                                        <i data-lucide="pencil" class="inline-block h-4 w-4 mr-1 align-middle" aria-hidden="true"></i>Modifier
                                     </a>
                                     <form method="POST" data-app-confirm="Supprimer ce billet ?" data-app-confirm-title="Supprimer le billet" data-app-confirm-label="Supprimer">
                                         <input type="hidden" name="csrf_token" value="<?= securiser($csrf) ?>">
@@ -517,7 +517,7 @@ require 'header.php';
                                         <input type="hidden" name="id" value="<?= (int)$b['id'] ?>">
                                         <button type="submit"
                                                 class="bg-red-100 text-red-700 hover:bg-red-200 px-3 py-2 rounded-lg text-xs">
-                                            Supprimer
+                                            <i data-lucide="trash-2" class="inline-block h-4 w-4 mr-1 align-middle" aria-hidden="true"></i>Supprimer
                                         </button>
                                     </form>
                                 </div>

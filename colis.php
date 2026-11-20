@@ -690,23 +690,22 @@ require 'header.php';
                                 </span>
                             </td>
                             <td class="px-4 py-3">
-                            <td class="px-4 py-3">
                                 <div class="flex justify-center gap-2 flex-wrap">
                                     <a href="colis_print.php?id=<?= (int)$c['id'] ?>"
                                        target="_blank"
-                                       class="bg-emerald-100 text-emerald-700 hover:bg-emerald-200 px-3 py-2 rounded-lg text-xs font-semibold">
+                                       class="inline-flex w-28 justify-center bg-emerald-100 text-emerald-700 hover:bg-emerald-200 px-3 py-2 rounded-lg text-xs font-semibold">
                                         Reçu
                                     </a>
                                     <a href="colis.php?modifier=<?= (int)$c['id'] ?>"
-                                       class="bg-amber-100 text-amber-700 hover:bg-amber-200 px-3 py-2 rounded-lg text-xs">
+                                                    class="inline-flex w-28 justify-center bg-amber-100 text-amber-700 hover:bg-amber-200 px-3 py-2 rounded-lg text-xs">
                                         Modifier
                                     </a>
-                                    <form method="POST" data-app-confirm="Supprimer ce colis ?" data-app-confirm-title="Supprimer le colis" data-app-confirm-label="Supprimer">
+                                    <form method="POST" class="w-28" data-app-confirm="Supprimer ce colis ?" data-app-confirm-title="Supprimer le colis" data-app-confirm-label="Supprimer">
                                         <input type="hidden" name="csrf_token" value="<?= securiser($csrf) ?>">
                                         <input type="hidden" name="action" value="supprimer">
                                         <input type="hidden" name="id" value="<?= (int)$c['id'] ?>">
                                         <button type="submit"
-                                                class="bg-red-100 text-red-700 hover:bg-red-200 px-3 py-2 rounded-lg text-xs">
+                                            class="w-full bg-red-100 text-red-700 hover:bg-red-200 px-3 py-2 rounded-lg text-xs">
                                             Supprimer
                                         </button>
                                     </form>
