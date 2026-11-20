@@ -12,7 +12,7 @@
 </main>
 
 <script src="notifications.js"></script>
-<script>if (window.lucide) lucide.createIcons();</script>
+<script src="icons.js"></script>
 <script>
     function ouvrirMenu() {
         document.getElementById('sidebar').classList.add('menu-ouvert');

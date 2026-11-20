@@ -155,7 +155,11 @@
         close.className = 'app-toast-close';
         close.type = 'button';
         close.setAttribute('aria-label', 'Fermer la notification');
-        close.textContent = '\u00d7';
+        const closeIcon = document.createElement('i');
+        closeIcon.setAttribute('data-lucide', 'x');
+        closeIcon.setAttribute('aria-hidden', 'true');
+        closeIcon.className = 'h-4 w-4';
+        close.appendChild(closeIcon);
         close.addEventListener('click', () => toast.remove());
         toast.append(label, content, close);
         region.appendChild(toast);

@@ -113,6 +113,7 @@ $menusH = [
         }
         .menu-link:hover { background: #075985; color: white; }
         .menu-link.actif { background: #0284c7; color: white; font-weight: 600; }
+        .app-action-icon { width: 1rem; height: 1rem; margin-right: .45rem; flex-shrink: 0; vertical-align: middle; }
 
         .carte { transition: transform .2s, box-shadow .2s; }
         .carte:hover { transform: translateY(-3px); box-shadow: 0 12px 30px rgba(14,165,233,.12); }
@@ -212,11 +213,7 @@ $menusH = [
             <div class="flex items-center gap-3 min-w-0">
                 <button type="button" onclick="ouvrirMenu()"
                         class="md:hidden flex-shrink-0 flex items-center gap-2 bg-sky-700 hover:bg-sky-800 text-white px-3 py-2.5 rounded-lg font-semibold text-sm">
-                    <span class="flex flex-col gap-1">
-                        <span class="block w-5 h-0.5 bg-white"></span>
-                        <span class="block w-5 h-0.5 bg-white"></span>
-                        <span class="block w-5 h-0.5 bg-white"></span>
-                    </span>
+                    <i data-lucide="menu" class="h-5 w-5" aria-hidden="true"></i>
                     <span>Menu</span>
                 </button>
 

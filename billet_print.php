@@ -272,10 +272,8 @@ $telVoyageur = nettoyerTelephone($billet['voyageur_tel'] ?? '');
         <a href="billets.php" class="btn btn-back">← Retour aux billets</a>
     </div>
 
-<script>
-    if (window.lucide) lucide.createIcons();
-</script>
 <script src="notifications.js"></script>
+<script src="icons.js"></script>
 <script>
     function partager() {
         const texte = <?= json_encode($textePartage, JSON_UNESCAPED_UNICODE) ?>;

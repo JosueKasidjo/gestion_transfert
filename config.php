@@ -1,3 +1,4 @@
+                        <i data-lucide='arrow-left' aria-hidden='true' style='width:16px;height:16px;margin-right:6px;vertical-align:middle;'></i>
 <?php
 
 if (!defined('NOM_APPLICATION')) {
@@ -217,9 +218,12 @@ if (!function_exists('exigerRole')) {
                         text-decoration:none;
                         border-radius:8px;
                        '>
+                        <i data-lucide='arrow-left' aria-hidden='true'></i>
                         Retour au tableau de bord
                     </a>
                 </div>
+                <script src='https://unpkg.com/lucide@latest'></script>
+                <script>lucide.createIcons();</script>
             ");
 
         }

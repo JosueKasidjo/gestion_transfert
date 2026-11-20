@@ -478,6 +478,6 @@ $logoUrl = $logoAgence ? URL_APPLICATION . ltrim($logoAgence, '/') : '';
         </div>
     <?php endforeach; ?>
 
-<script>if (window.lucide) lucide.createIcons();</script>
+<script src="icons.js"></script>
 </body>
 </html>

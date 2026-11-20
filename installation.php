@@ -715,6 +715,6 @@ try {
 
     </div>
 
-<script>if (window.lucide) lucide.createIcons();</script>
+<script src="icons.js"></script>
 </body>
 </html>

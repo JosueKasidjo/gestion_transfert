@@ -288,10 +288,8 @@ $telDestinataire = nettoyerTelephone($colis['destinataire_tel'] ?? '');
         <a href="colis.php" class="btn btn-back">← Retour aux colis</a>
     </div>
 
-<script>
-    if (window.lucide) lucide.createIcons();
-</script>
 <script src="notifications.js"></script>
+<script src="icons.js"></script>
 <script>
     function partager() {
         const texte = <?= json_encode($textePartage, JSON_UNESCAPED_UNICODE) ?>;

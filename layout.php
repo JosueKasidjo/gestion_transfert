@@ -63,6 +63,8 @@ $menusLayout = [
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title><?= securiser($titrePage) ?> - <?= securiser($nomAgenceLayout) ?></title>
 <script src="https://cdn.tailwindcss.com"></script>
+<script src="https://unpkg.com/lucide@latest"></script>
+<script src="icons.js" defer></script>
 <style>
     * { box-sizing: border-box; }
     * {
@@ -80,6 +82,7 @@ $menusLayout = [
     .menu-link { display:flex; align-items:center; padding:11px 14px; border-radius:9px; color:#dbeafe; transition:all .2s ease; font-size:14px; }
     .menu-link:hover { background:#075985; color:white; }
     .menu-link.actif { background:#0284c7; color:white; font-weight:600; }
+        .app-action-icon { width:1rem; height:1rem; margin-right:.45rem; flex-shrink:0; vertical-align:middle; }
     .carte { transition:transform .2s, box-shadow .2s; }
     .carte:hover { transform:translateY(-3px); box-shadow:0 12px 30px rgba(14,165,233,.12); }
     .sidebar { width:260px; background:#082f49; color:white; position:fixed; top:0; bottom:0; left:0; z-index:50; display:flex; flex-direction:column; transition:transform .3s ease; }
@@ -145,11 +148,7 @@ $menusLayout = [
         <div class="flex justify-between items-center gap-4">
             <div class="flex items-center gap-3 min-w-0">
                 <button type="button" onclick="ouvrirMenu()" class="md:hidden flex-shrink-0 flex items-center gap-2 bg-sky-700 hover:bg-sky-800 text-white px-3 py-2.5 rounded-lg font-semibold text-sm">
-                    <span class="flex flex-col gap-1">
-                        <span class="block w-5 h-0.5 bg-white"></span>
-                        <span class="block w-5 h-0.5 bg-white"></span>
-                        <span class="block w-5 h-0.5 bg-white"></span>
-                    </span>
+                    <i data-lucide="menu" class="h-5 w-5" aria-hidden="true"></i>
                     <span>Menu</span>
                 </button>
                 <div class="min-w-0">

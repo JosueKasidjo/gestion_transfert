@@ -362,7 +362,6 @@ $logo_url = $logo ? URL_APPLICATION . ltrim($logo, '/') : '';
     </div>
 
     <script>
-        if (window.lucide) lucide.createIcons();
         function afficherMotDePasse() {
             const champ = document.getElementById("mot_de_passe");
             const btn = document.getElementById("btn_mdp");
@@ -377,5 +376,6 @@ $logo_url = $logo ? URL_APPLICATION . ltrim($logo, '/') : '';
         }
     </script>
 
+<script src="icons.js"></script>
 </body>
 </html>
